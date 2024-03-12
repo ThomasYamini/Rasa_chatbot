@@ -1,0 +1,22 @@
+CONSTRUCT {
+    ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <urn:resource>. 
+} WHERE {
+    ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://www.datatourisme.fr/ontology/core#PointOfInterest>.
+    ?res <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type.
+    ?res <https://www.datatourisme.fr/ontology/core#isLocatedAt> ?61f14e39.
+    ?61f14e39 <http://schema.org/address> ?e2dc5ce6.
+    ?e2dc5ce6 <https://www.datatourisme.fr/ontology/core#hasAddressCity> ?2b7e3a94.
+    ?2b7e3a94 <https://www.datatourisme.fr/ontology/core#isPartOfDepartment> ?41508c7e.
+    ?41508c7e <https://www.datatourisme.fr/ontology/core#isPartOfRegion> ?318431bf.
+    VALUES ?type {
+        <https://www.datatourisme.fr/ontology/core#CyclingTour>
+        <https://www.datatourisme.fr/ontology/core#WalkingTour>
+        <https://www.datatourisme.fr/ontology/core#RoadTour>
+        <https://www.datatourisme.fr/ontology/core#PlaceOfInterest>
+        <https://www.datatourisme.fr/ontology/core#EntertainmentAndEvent>
+        <https://www.datatourisme.fr/ontology/core#Product>
+    }
+    VALUES ?318431bf {
+        <https://www.datatourisme.fr/resource/core#France53>
+    }
+}

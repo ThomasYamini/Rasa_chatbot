@@ -1,0 +1,101 @@
+version: "3.1"
+
+nlu:
+- intent: find_attraction
+  examples: |
+    - Trouve-moi une ferme à [commune].
+    - Quelles sont les attractions à [commune] ?
+    - Parle-moi des attractions à [commune].
+
+- intent: get_description
+  examples: |
+    - Parle-moi de [titre_courant].
+    - Décris [titre_courant].
+    - Que peux-tu me dire sur [titre_courant] ?
+    
+- intent: greet
+  examples: |
+    - salut
+    - bonjour
+    - coucou
+    - bonjour là
+    - bon matin
+    - bonsoir
+    - moin
+    - salut là
+    - allons-y
+    - hé mec
+    - bon matin
+    - bonsoir
+    - bon après-midi
+
+- intent: goodbye
+  examples: |
+    - cu
+    - au revoir
+    - à la prochaine
+    - bonne nuit
+    - adieu
+    - au revoir
+    - passe une bonne journée
+    - à bientôt
+    - bye bye
+    - à plus tard
+
+- intent: affirm
+  examples: |
+    - oui
+    - en effet
+    - bien sûr
+    - ça semble bien
+    - correct
+
+- intent: deny
+  examples: |
+    - non
+    - jamais
+    - je ne pense pas
+    - je n'aime pas ça
+    - aucune chance
+    - pas vraiment
+
+- intent: mood_great
+  examples: |
+    - parfait
+    - génial
+    - incroyable
+    - je me sens comme un roi
+    - merveilleux
+    - je me sens très bien
+    - ça va bien
+    - je vais bien
+    - je vais bien
+    - super excité
+    - extrêmement bien
+    - tellement parfait
+    - si bien
+    - si parfait
+
+- intent: mood_unhappy
+  examples: |
+    - ma journée était horrible
+    - je suis triste
+    - je ne me sens pas très bien
+    - je suis déçu
+    - super triste
+    - je suis tellement triste
+    - triste
+    - très triste
+    - malheureux
+    - pas bien
+    - pas très bien
+    - extrêmement triste
+    - si triste
+    - si triste
+
+- intent: bot_challenge
+  examples: |
+    - es-tu un robot ?
+    - es-tu un humain ?
+    - Est-ce que je parle à un robot ?
+    - Est-ce que je parle à un humain ?

@@ -1,0 +1,43 @@
+version: "3.1"
+
+stories:
+- story: L'utilisateur souhaite des informations sur les attractions à Brest
+  steps:
+  - intent: find_attraction
+    entities:
+    - commune: "Brest"
+  - action: utter_find_attraction
+
+- story: L'utilisateur veut une description du Mont Saint-Michel
+  steps:
+  - intent: get_description
+    entities:
+    - current_title: "Mont Saint-Michel"
+  - action: utter_get_description
+
+- story: scénario heureux
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: scénario triste 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: scénario triste 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

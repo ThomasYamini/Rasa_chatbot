@@ -1,0 +1,10 @@
+{"sparql-executor.endpoints": [
+    {
+        "protocol": "https",
+        "host": "https://diffuseur.datatourisme.fr/",
+        "path": "/webservice/00cfc0f8fac4fd9ce1779b2466155d3c",
+        "name": "tourism-data-gov",
+        "method": "GET",
+        "queryParameterName": "query"
+    }
+]}
