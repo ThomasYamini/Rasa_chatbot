@@ -3,15 +3,24 @@ version: "3.1"
 nlu:
 - intent: find_attraction
   examples: |
-    - Trouve-moi une ferme à [commune].
+    - Trouve-moi un musée à [commune].
     - Quelles sont les attractions à [commune] ?
     - Parle-moi des attractions à [commune].
+    - Donne-moi des informations sur les endroits intéressants à [commune].
+    - Où puis-je trouver des lieux touristiques à [commune] ?
+    - Quels sont les musées recommandés à [commune] ?
+    - Y a-t-il des attractions célèbres à [commune] ?
 
 - intent: get_description
   examples: |
     - Parle-moi de [titre_courant].
     - Décris [titre_courant].
     - Que peux-tu me dire sur [titre_courant] ?
+    - Donne-moi des détails sur [titre_courant].
+    - Explique ce qu'est [titre_courant].
+    - Raconte l'histoire de [titre_courant].
+    - Parle-moi un peu plus de [titre_courant].
+    - Quelle est l'histoire derrière [titre_courant] ?
     
 - intent: greet
   examples: |
@@ -41,61 +50,3 @@ nlu:
     - à bientôt
     - bye bye
     - à plus tard
-
-- intent: affirm
-  examples: |
-    - oui
-    - en effet
-    - bien sûr
-    - ça semble bien
-    - correct
-
-- intent: deny
-  examples: |
-    - non
-    - jamais
-    - je ne pense pas
-    - je n'aime pas ça
-    - aucune chance
-    - pas vraiment
-
-- intent: mood_great
-  examples: |
-    - parfait
-    - génial
-    - incroyable
-    - je me sens comme un roi
-    - merveilleux
-    - je me sens très bien
-    - ça va bien
-    - je vais bien
-    - je vais bien
-    - super excité
-    - extrêmement bien
-    - tellement parfait
-    - si bien
-    - si parfait
-
-- intent: mood_unhappy
-  examples: |
-    - ma journée était horrible
-    - je suis triste
-    - je ne me sens pas très bien
-    - je suis déçu
-    - super triste
-    - je suis tellement triste
-    - triste
-    - très triste
-    - malheureux
-    - pas bien
-    - pas très bien
-    - extrêmement triste
-    - si triste
-    - si triste
-
-- intent: bot_challenge
-  examples: |
-    - es-tu un robot ?
-    - es-tu un humain ?
-    - Est-ce que je parle à un robot ?
-    - Est-ce que je parle à un humain ?

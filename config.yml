@@ -11,8 +11,6 @@ assistant_id: 20240312-002953-excited-pinscher
 language: fr
 
 pipeline:
-# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# # If you'd like to customize it, uncomment and adjust the pipeline.
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
@@ -26,6 +24,7 @@ pipeline:
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
+
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

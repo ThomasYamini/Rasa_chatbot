@@ -26,8 +26,10 @@ class ActionFindAttraction(Action):
         attraction_types = filtered_data['denomination'].drop_duplicates().head()
 
         # Respond to the user
-        dispatcher.utter_message(text=f"Voici quelque {attraction_types} à {city}: {result}")
-
+        dispatcher.utter_message(template='utter_find_attraction',
+                                 attraction_types=attraction_types,
+                                 city=city,
+                                 result=result)
         return []
 
 
@@ -52,7 +54,9 @@ class ActionGetDescription(Action):
             description = attraction_info['commentaire_descriptif'].iloc[0]
 
             # Respond to the user with the description
-            dispatcher.utter_message(text=f"Le {attraction_title} est décrit comme suit : {description}")
+            dispatcher.utter_message(template='utter_get_description',
+                                     attraction_title=attraction_title,
+                                     description=description)
         else:
             dispatcher.utter_message(text=f"je n'ai pas pu trouver d'informations pour {attraction_title}.")
 
