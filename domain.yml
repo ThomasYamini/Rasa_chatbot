@@ -3,54 +3,52 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - find_attraction
-  - get_description
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - mood_joke
+  - intent_email
 
-entities:
-  - commune
-  - titre_courant
+entities: 
+  - email
 
 slots:
-  commune:
+  email:
     type: text
     mappings:
-    - type: custom
-  titre_courant:
-    type: text
-    mappings:
-    - type: custom
-  attraction_types:
-    type: list
-    mappings:
-    - type: custom
-  result:
-    type: any
-    mappings:
-    - type: custom
-  attraction_info:
-    type: text
-    mappings:
-    - type: custom
-  description:
-    type: text
-    mappings:
-    - type: custom
-
-actions:
-  - utter_find_attraction
-  - utter_get_description
+      - type: custom
 
 responses:
-  utter_find_attraction:
-  - text: "Voici quelque {attraction_types} à {commune}: {result}"
-  utter_get_description:
-  - text: "Le {attraction_title} est décrit comme suit : {description}"
-
   utter_greet:
-  - text: "Salut ! Comment ça va ?"
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Au revoir"
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_joke: 
+  - text: "What is the only dog you can eat? - A Hot Dog"
+
+
+
+actions:
+  - action_validate_email
+
+  
 
 session_config:
   session_expiration_time: 60

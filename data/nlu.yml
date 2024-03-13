@@ -1,59 +1,113 @@
 version: "3.1"
 
 nlu:
-- intent: find_attraction
-  examples: |
-    - Trouve-moi un musée à [Brest](commune)
-    - Quelles sont les attractions à [Quimper](commune) ?
-    - Parle-moi des attractions à [Rennes](commune)
-    - Donne-moi des informations sur les endroits intéressants à [Lorient](commune)
-    - Où puis-je trouver des lieux touristiques à [Vannes](commune) ?
-    - Quels sont les musées recommandés à [Saint-Malo](commune) ?
-    - Y a-t-il des attractions célèbres à [Plouzané](commune) ?
-    - Trouve-moi un musée à [brest](commune)
-    - Quelles sont les attractions à [quimper](commune) ?
-    - Parle-moi des attractions à [rennes](commune)
-    - Donne-moi des informations sur les endroits intéressants à [lorient](commune)
-    - Où puis-je trouver des lieux touristiques à [vannes](commune) ?
-    - Quels sont les musées recommandés à [saint-malo](commune) ?
-    - Y a-t-il des attractions célèbres à [plouzané](commune) ?
-
-- intent: get_description
-  examples: |
-    - Parle-moi de la [Ville-port de Brest](titre_courant)
-    - Décris la [Base de sous-marins](titre_courant)
-    - Que peux-tu me dire sur le [Gymnase Foch] (titre_courant)
-    - Donne-moi des détails sur la [Cité universitaire](titre_courant)
-    - Explique ce qu'est le [Château de Bréquigny](titre_courant)
-    - Raconte l'histoire du [Parc de Bréquigny](titre_courant)
-    - Parle-moi un peu plus des [Latrines](titre_courant)
-    - Quelle est l'histoire derrière l'[École municipale de jeunes filles](titre_courant) ?
-    
 - intent: greet
   examples: |
-    - salut
-    - bonjour
-    - coucou
-    - bonjour là
-    - bon matin
-    - bonsoir
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
     - moin
-    - salut là
-    - allons-y
-    - hé mec
-    - bon matin
-    - bonsoir
-    - bon après-midi
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
 
 - intent: goodbye
   examples: |
     - cu
-    - au revoir
-    - à la prochaine
-    - bonne nuit
-    - adieu
-    - au revoir
-    - passe une bonne journée
-    - à bientôt
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
     - bye bye
-    - à plus tard
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: mood_joke
+  examples: |
+    - tell me a joke
+    - i want a joke
+    - joke
+
+- intent: intent_email
+  examples: |
+    - Mon adresse e-mail est [john.doe@gmail.com](email)
+    - Peux-tu m'envoyer des informations à [contact@example.com](email) ?
+    - Mon e-mail est [user@email.com](email)
+    - Mon adresse e-mail est [john.doe@gmail.org](email)
+    - Peux-tu m'envoyer des informations à [contact@example.net](email) ?
+    - Mon e-mail est [user@email.fr](email)
+    - Mon adresse e-mail est [elie.pont@gmail.net](email)
+    - Peux-tu m'envoyer des informations à [contact@example.fr](email) ?
+    - Mon e-mail est [da@ed.org](email)
+    
+
+
+

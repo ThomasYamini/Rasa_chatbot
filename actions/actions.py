@@ -1,63 +1,49 @@
-from typing import Any, Dict, Text, List
-import pandas as pd
-from rasa_sdk import Tracker
-from rasa_sdk.executor import CollectingDispatcher
+# This files contains your custom actions which can be used to run
+# custom Python code.
+#
+# See this guide on how to implement these action:
+# https://rasa.com/docs/rasa/custom-actions
+
+
+# This is a simple example for a custom action which utters "Hello World!"
+
+# from typing import Any, Text, Dict, List
+#
+# from rasa_sdk import Action, Tracker
+# from rasa_sdk.executor import CollectingDispatcher
+#
+#
+# class ActionHelloWorld(Action):
+#
+#     def name(self) -> Text:
+#         return "action_hello_world"
+#
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#
+#         dispatcher.utter_message(text="Hello World!")
+#
+#         return []
+
+
+
+
+import re
 from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
 
-class ActionFindAttraction(Action):
-    def name(self) -> Text:
-        return "utter_find_attraction"
+class ValidateEmailAction(Action):
+    def name(self):
+        return "action_validate_email"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # Load the data
-        data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
+    def run(self, dispatcher, tracker, domain):
+        email = next(tracker.get_latest_entity_values("email"), None)
 
-        # Extract entity values from user input
-        commune = next(tracker.get_latest_entity_values("commune"), 'Cacaboudin')
-        
-
-        # Filter data based on user input
-        filtered_data = data[data['commune'] == commune]
-
-        # Get relevant information
-        result = filtered_data[['titre_courant', 'commentaire_descriptif']].head(1).to_dict(orient='records')
-        attraction_types = filtered_data['denomination'].drop_duplicates().head(1).tolist()
-
-        # Respond to the user
-        dispatcher.utter_message(template='utter_find_attraction',
-                                 attraction_types=attraction_types,
-                                 commune=commune,
-                                 result=result)
-        return [SlotSet(("commune", commune))]
-
-
-class ActionGetDescription(Action):
-    def name(self) -> Text:
-        return "utter_get_description"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # Load the data
-        data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
-
-        # Extract entity values from user input
-        attraction_title = next(tracker.get_latest_entity_values("titre_courant"), "Mega prout")
-        # Filter data based on the attraction title
-        attraction_info = data[data['titre_courant'] == attraction_title]
-
-        if not attraction_info.empty:
-            # Get relevant information
-            description = attraction_info['commentaire_descriptif'].iloc[0]
-
-            # Respond to the user with the description
-            dispatcher.utter_message(template='utter_get_description',
-                                     attraction_title=attraction_title,
-                                     description=description)
+        if email and re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email):
+            dispatcher.utter_message(f"L'e-mail {email} est valide. Merci !")
         else:
-            dispatcher.utter_message(text=f"je n'ai pas pu trouver d'informations pour {attraction_title}.")
+            dispatcher.utter_message(f"L'e-mail {email} n'est pas valide. Veuillez le retaper.")
 
-        return []
+        return [SlotSet("email", email)]
+

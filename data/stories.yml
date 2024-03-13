@@ -1,44 +1,44 @@
 version: "3.1"
 
 stories:
-- story: L'utilisateur souhaite des informations sur les attractions à Brest
-  steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Brest"
-  - action: utter_find_attraction
 
-- story: L'utilisateur veut une description du Mont Saint-Michel
+- story: happy path
   steps:
-  - intent: get_description
-    entities:
-    - titre_courant: "Mont Saint-Michel"
-  - action: utter_get_description
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: mood_joke
+  - action: utter_joke
 
-- story: L'utilisateur souhaite des informations sur les attractions à Quimper
+- story: sad path 1
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Quimper"
-  - action: utter_find_attraction
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
 
-- story: L'utilisateur veut une description de la cathédrale de Rennes
+- story: sad path 2
   steps:
-  - intent: get_description
-    entities:
-    - titre_courant: "Cathédrale de Rennes"
-  - action: utter_get_description
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
 
-- story: L'utilisateur demande des recommandations pour visiter Vannes
+- story: joke
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Vannes"
-  - action: utter_find_attraction
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_joke
+    - action: utter_joke
 
-- story: L'utilisateur cherche des activités touristiques à Saint-Malo
+- story: User provides email
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Saint-Malo"
-  - action: utter_find_attraction
+    - intent: intent_email
+    - action: action_validate_email
