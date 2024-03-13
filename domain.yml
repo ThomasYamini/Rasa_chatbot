@@ -13,32 +13,26 @@ entities:
 slots:
   commune:
     type: text
-    influence_conversation: false
     mappings:
     - type: custom
   titre_courant:
     type: text
-    influence_conversation: false
     mappings:
     - type: custom
   attraction_types:
     type: list
-    influence_conversation: false
     mappings:
     - type: custom
   result:
     type: any
-    influence_conversation: false
     mappings:
     - type: custom
   attraction_info:
     type: text
-    influence_conversation: false
     mappings:
     - type: custom
   description:
     type: text
-    influence_conversation: false
     mappings:
     - type: custom
 

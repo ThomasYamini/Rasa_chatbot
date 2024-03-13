@@ -3,7 +3,7 @@ import pandas as pd
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk import Action
-
+from rasa_sdk.events import SlotSet
 
 class ActionFindAttraction(Action):
     def name(self) -> Text:
@@ -16,21 +16,22 @@ class ActionFindAttraction(Action):
         data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
 
         # Extract entity values from user input
-        commune = tracker.get_slot("commune")
+        commune = next(tracker.get_latest_entity_values("commune"), 'Cacaboudin')
+        
 
         # Filter data based on user input
         filtered_data = data[data['commune'] == commune]
 
         # Get relevant information
-        result = filtered_data[['titre_courant', 'commentaire_descriptif']].head().to_dict(orient='records')
-        attraction_types = filtered_data['denomination'].drop_duplicates().head().tolist()
+        result = filtered_data[['titre_courant', 'commentaire_descriptif']].head(1).to_dict(orient='records')
+        attraction_types = filtered_data['denomination'].drop_duplicates().head(1).tolist()
 
         # Respond to the user
         dispatcher.utter_message(template='utter_find_attraction',
                                  attraction_types=attraction_types,
                                  commune=commune,
                                  result=result)
-        return []
+        return [SlotSet(("commune", commune))]
 
 
 class ActionGetDescription(Action):
@@ -44,8 +45,7 @@ class ActionGetDescription(Action):
         data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
 
         # Extract entity values from user input
-        attraction_title = tracker.get_slot("titre_courant")
-
+        attraction_title = next(tracker.get_latest_entity_values("titre_courant"), "Mega prout")
         # Filter data based on the attraction title
         attraction_info = data[data['titre_courant'] == attraction_title]
 
