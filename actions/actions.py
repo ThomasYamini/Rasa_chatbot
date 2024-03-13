@@ -16,10 +16,10 @@ class ActionFindAttraction(Action):
         data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
 
         # Extract entity values from user input
-        city = tracker.get_slot("commune")
+        commune = tracker.get_slot("commune")
 
         # Filter data based on user input
-        filtered_data = data[data['commune'] == city]
+        filtered_data = data[data['commune'] == commune]
 
         # Get relevant information
         result = filtered_data[['titre_courant', 'commentaire_descriptif']].head().to_dict(orient='records')
@@ -28,7 +28,7 @@ class ActionFindAttraction(Action):
         # Respond to the user
         dispatcher.utter_message(template='utter_find_attraction',
                                  attraction_types=attraction_types,
-                                 city=city,
+                                 commune=commune,
                                  result=result)
         return []
 

@@ -21,6 +21,26 @@ slots:
     influence_conversation: false
     mappings:
     - type: custom
+  attraction_types:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom
+  result:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+  attraction_info:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  description:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
 
 actions:
   - utter_find_attraction
@@ -28,7 +48,7 @@ actions:
 
 responses:
   utter_find_attraction:
-  - text: "Voici quelque {attraction_types} à {city}: {result}"
+  - text: "Voici quelque {attraction_types} à {commune}: {result}"
   utter_get_description:
   - text: "Le {attraction_title} est décrit comme suit : {description}"
 
