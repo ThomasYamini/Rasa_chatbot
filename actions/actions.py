@@ -61,3 +61,16 @@ class ActionGetDescription(Action):
             dispatcher.utter_message(text=f"je n'ai pas pu trouver d'informations pour {attraction_title}.")
 
         return []
+
+
+
+class ActionNluFallback(Action):
+    def name(self) -> Text:
+        return "nlu_fallback"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+
+        dispatcher.utter_message(template="utter_nlu_fallback_response")
+
+        return []

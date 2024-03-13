@@ -45,6 +45,7 @@ slots:
 actions:
   - utter_find_attraction
   - utter_get_description
+  - utter_nlu_fallback_response
 
 responses:
   utter_find_attraction:
@@ -57,6 +58,8 @@ responses:
 
   utter_goodbye:
   - text: "Au revoir"
+  utter_nlu_fallback_response:
+  - text: "Je ne comprends pas ce que vous voulez ;D"
 
 session_config:
   session_expiration_time: 60
