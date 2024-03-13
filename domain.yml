@@ -11,7 +11,7 @@ entities:
   - titre_courant
 
 slots:
-  commune:
+  city:
     type: text
     mappings:
     - type: custom
@@ -36,15 +36,11 @@ slots:
     mappings:
     - type: custom
 
-actions:
-  - utter_find_attraction
-  - utter_get_description
-
 responses:
-  utter_find_attraction:
-  - text: "Voici quelque {attraction_types} à {commune}: {result}"
-  utter_get_description:
-  - text: "Le {attraction_title} est décrit comme suit : {description}"
+  # utter_find_attraction:
+  # - text: 
+  # utter_get_description:
+  # - text: "Le {attraction_title} est décrit comme suit : {description}"
 
   utter_greet:
   - text: "Salut ! Comment ça va ?"
@@ -52,6 +48,10 @@ responses:
   utter_goodbye:
   - text: "Au revoir"
 
+actions:
+  - utter_find_attraction
+  - utter_get_description
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

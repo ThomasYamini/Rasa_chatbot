@@ -14,5 +14,5 @@ filtered_data = data[data['commune'] == commune_values]
 result = filtered_data[['titre_courant', 'commentaire_descriptif']].head(1)
 attraction_types = filtered_data['denomination'].drop_duplicates().head(1)
 
-print(result)
+print(f'CACA {commune_values}')
 print(attraction_types)

@@ -13,7 +13,7 @@ class ActionFindAttraction(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Load the data
-        data = pd.read_excel("./inventaire-du-patrimoine-breton-couche-simplifiee.xlsx")
+        data = pd.read_excel("./inventaire-Brest.xlsx")
 
         # Extract entity values from user input
         commune = next(tracker.get_latest_entity_values("commune"), 'Cacaboudin')
@@ -27,11 +27,9 @@ class ActionFindAttraction(Action):
         attraction_types = filtered_data['denomination'].drop_duplicates().head(1).tolist()
 
         # Respond to the user
-        dispatcher.utter_message(template='utter_find_attraction',
-                                 attraction_types=attraction_types,
-                                 commune=commune,
-                                 result=result)
-        return [SlotSet(("commune", commune))]
+        dispatcher.utter_message(f'Voici quelque {attraction_types} à {commune}: {result}')
+        
+        return [SlotSet(("city", commune))]
 
 
 class ActionGetDescription(Action):

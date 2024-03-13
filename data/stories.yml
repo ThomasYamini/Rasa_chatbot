@@ -3,42 +3,30 @@ version: "3.1"
 stories:
 - story: L'utilisateur souhaite des informations sur les attractions à Brest
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Brest"
-  - action: utter_find_attraction
+    - intent: find_attraction
+    - action: utter_find_attraction
 
 - story: L'utilisateur veut une description du Mont Saint-Michel
   steps:
-  - intent: get_description
-    entities:
-    - titre_courant: "Mont Saint-Michel"
-  - action: utter_get_description
+    - intent: get_description
+    - action: utter_get_description
 
 - story: L'utilisateur souhaite des informations sur les attractions à Quimper
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Quimper"
-  - action: utter_find_attraction
+    - intent: find_attraction
+    - action: utter_find_attraction
 
 - story: L'utilisateur veut une description de la cathédrale de Rennes
   steps:
-  - intent: get_description
-    entities:
-    - titre_courant: "Cathédrale de Rennes"
-  - action: utter_get_description
+    - intent: get_description
+    - action: utter_get_description
 
 - story: L'utilisateur demande des recommandations pour visiter Vannes
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Vannes"
-  - action: utter_find_attraction
+    - intent: find_attraction
+    - action: utter_find_attraction
 
 - story: L'utilisateur cherche des activités touristiques à Saint-Malo
   steps:
-  - intent: find_attraction
-    entities:
-    - commune: "Saint-Malo"
-  - action: utter_find_attraction
+    - intent: find_attraction
+    - action: utter_find_attraction
