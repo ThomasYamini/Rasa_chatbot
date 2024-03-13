@@ -6,6 +6,26 @@ intents:
   - find_attraction
   - get_description
 
+entities:
+  - commune
+  - titre_courant
+
+slots:
+  commune:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  titre_courant:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+actions:
+  - utter_find_attraction
+  - utter_get_description
+
 responses:
   utter_find_attraction:
   - text: "Voici quelque {attraction_types} à {city}: {result}"

@@ -22,7 +22,7 @@ class ActionFindAttraction(Action):
         filtered_data = data[data['commune'] == city]
 
         # Get relevant information
-        result = filtered_data[['titre_courant', 'commentaire_descriptif']].to_dict(orient='records')
+        result = filtered_data[['titre_courant', 'commentaire_descriptif']].head().to_dict(orient='records')
         attraction_types = filtered_data['denomination'].drop_duplicates().head()
 
         # Respond to the user
