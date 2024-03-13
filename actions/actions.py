@@ -23,7 +23,7 @@ class ActionFindAttraction(Action):
 
         # Get relevant information
         result = filtered_data[['titre_courant', 'commentaire_descriptif']].head().to_dict(orient='records')
-        attraction_types = filtered_data['denomination'].drop_duplicates().head()
+        attraction_types = filtered_data['denomination'].drop_duplicates().head().tolist()
 
         # Respond to the user
         dispatcher.utter_message(template='utter_find_attraction',

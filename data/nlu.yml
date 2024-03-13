@@ -3,24 +3,31 @@ version: "3.1"
 nlu:
 - intent: find_attraction
   examples: |
-    - Trouve-moi un musée à [commune].
-    - Quelles sont les attractions à [commune] ?
-    - Parle-moi des attractions à [commune].
-    - Donne-moi des informations sur les endroits intéressants à [commune].
-    - Où puis-je trouver des lieux touristiques à [commune] ?
-    - Quels sont les musées recommandés à [commune] ?
-    - Y a-t-il des attractions célèbres à [commune] ?
+    - Trouve-moi un musée à [Brest](commune)
+    - Quelles sont les attractions à [Quimper](commune) ?
+    - Parle-moi des attractions à [Rennes](commune)
+    - Donne-moi des informations sur les endroits intéressants à [Lorient](commune)
+    - Où puis-je trouver des lieux touristiques à [Vannes](commune) ?
+    - Quels sont les musées recommandés à [Saint-Malo](commune) ?
+    - Y a-t-il des attractions célèbres à [Plouzané](commune) ?
+    - Trouve-moi un musée à [brest](commune)
+    - Quelles sont les attractions à [quimper](commune) ?
+    - Parle-moi des attractions à [rennes](commune)
+    - Donne-moi des informations sur les endroits intéressants à [lorient](commune)
+    - Où puis-je trouver des lieux touristiques à [vannes](commune) ?
+    - Quels sont les musées recommandés à [saint-malo](commune) ?
+    - Y a-t-il des attractions célèbres à [plouzané](commune) ?
 
 - intent: get_description
   examples: |
-    - Parle-moi de [titre_courant].
-    - Décris [titre_courant].
-    - Que peux-tu me dire sur [titre_courant] ?
-    - Donne-moi des détails sur [titre_courant].
-    - Explique ce qu'est [titre_courant].
-    - Raconte l'histoire de [titre_courant].
-    - Parle-moi un peu plus de [titre_courant].
-    - Quelle est l'histoire derrière [titre_courant] ?
+    - Parle-moi de la [Ville-port de Brest](titre_courant)
+    - Décris la [Base de sous-marins](titre_courant)
+    - Que peux-tu me dire sur le [Gymnase Foch] (titre_courant)
+    - Donne-moi des détails sur la [Cité universitaire](titre_courant)
+    - Explique ce qu'est le [Château de Bréquigny](titre_courant)
+    - Raconte l'histoire du [Parc de Bréquigny](titre_courant)
+    - Parle-moi un peu plus des [Latrines](titre_courant)
+    - Quelle est l'histoire derrière l'[École municipale de jeunes filles](titre_courant) ?
     
 - intent: greet
   examples: |
