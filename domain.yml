@@ -5,14 +5,28 @@ intents:
   - goodbye
   - find_attraction
   - get_description
+  - get_activity_type
 
 entities:
   - commune
   - titre_courant
+  - type_activite
 
 slots:
   city:
     type: text
+    mappings:
+    - type: custom
+  activity_type:
+    type: categorical
+    values:
+      - militaire
+      - port
+      - sport
+      - education
+      - administratif
+      - religion
+      - histoire
     mappings:
     - type: custom
   titre_courant:
@@ -37,11 +51,6 @@ slots:
     - type: custom
 
 responses:
-  # utter_find_attraction:
-  # - text: 
-  # utter_get_description:
-  # - text: "Le {attraction_title} est décrit comme suit : {description}"
-
   utter_greet:
   - text: "Salut ! Comment ça va ?"
 
@@ -49,8 +58,9 @@ responses:
   - text: "Au revoir"
 
 actions:
-  - utter_find_attraction
-  - utter_get_description
+  - action_find_attraction
+  - action_get_description
+  - action_ask_activity_type
   
 session_config:
   session_expiration_time: 60

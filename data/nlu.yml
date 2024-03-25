@@ -28,7 +28,17 @@ nlu:
     - Raconte l'histoire du [Parc de Bréquigny](titre_courant)
     - Parle-moi un peu plus des [Latrines](titre_courant)
     - Quelle est l'histoire derrière l'[École municipale de jeunes filles](titre_courant) ?
-    
+   
+- intent: get_activity_type
+  examples: |
+    - Indique moi une infrastructure [militaire](type_activite)
+    - Trouve moi un [port](type_activite)
+    - Donne une installation [sport](type_activite)
+    - Indique moi un établissement[education](type_activite)
+    - Pointe vers un bâtiments[administratif](type_activite)
+    - Cherche un Édifice [religion](type_activite)
+    - Fais moi découvrir un site [histoire](type_activite)
+   
 - intent: greet
   examples: |
     - salut

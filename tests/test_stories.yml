@@ -13,30 +13,68 @@ stories:
     intent: mood_great
   - action: utter_happy
 
-- story: User asks about attractions in Brittany
+- story: happy path 2
   steps:
   - user: |
-      What are the attractions in Brittany?
-    intent: find_attraction
-    entities:
-    - city: "Brittany"
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
 
-- story: User wants a description of Mont Saint-Michel
+- story: sad path 1
   steps:
   - user: |
-      Tell me about Mont Saint-Michel.
-    intent: get_description
-    entities:
-    - current_title: "Mont Saint-Michel"
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_happy
 
-- story: User asks about historic sites in Rennes
+- story: sad path 2
   steps:
   - user: |
-      Find me some historic sites in Rennes.
-    intent: find_attraction
-    entities:
-    - city: "Rennes"
-    - type: "historic site"
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      not good
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      not really
+    intent: deny
+  - action: utter_goodbye
+
+- story: sad path 3
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      very terrible
+    intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
 
 - story: say goodbye
   steps:
