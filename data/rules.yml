@@ -50,3 +50,13 @@ rules:
   steps: 
     - intent: get_activity_type
     - action: action_ask_activity_type
+
+- rule: demander feedback à chaque merci
+  steps:
+    - intent: merci
+    - action: utter_ask_feedback
+
+- rule: check feedback
+  steps:
+    - intent: feedback
+    - action: action_feedback
