@@ -1,69 +1,245 @@
 version: "3.1"
 
 nlu:
+- intent: hello
+  examples: |
+    - hello
+    - Hello
+    - Salut
+    - Bon jour
+    - Bonjour
+    - bon soir
+    - Bonsoir
+    - Hey
+    - Hi
+
+- intent: merci
+  examples: |
+    - merci bien
+    - thanks
+    - niquel
+    - Merci
+    - ty
+    - mrc
+
+
+- intent: feedback
+  examples: |
+    - J'ai beaucoup aimé
+    - Je n'ai pas aimé cette conversation
+    - Je ne suis pas satisfait
+    - A revoir
+    - Manque de réponses
+    - La conversation était agréable
+    - Vous devez vous améliorer
+    - Conversation à revoir
+    - Parfait
+    - Excellent
+    - Super
+    - Nul
+    - Mauvais
+    - Je n'ai pas apprécié
+    - C'était super
+    - Super
+    - top
+    - Je n'ai pas aimé cette conversation, manque de réponses
+    - J'ai beaucoup apprécié, rien à redire
+
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - oui
+    - yes
+    - c'est ça
+    - OUI
+    - ok
+    - correct
+    - exact
+
+- intent: deny
+  examples: |
+    - non
+    - n
+    - no
+    - pas du tout
+    - pas moyen
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+
+- intent: demande 
+  examples: |
+    - Je voudrais acheter un billet de train pour [Rennes](city).
+    - Est-ce que je peux réserver un billet d'avion pour [Brest](city) ?
+    - Je cherche à acheter un billet de bus pour [Quimper](city).
+    - Je veux partir à [Brest](city)
+    - Bonjour, je voudrais commander un billet
+    - acheter un billet
+    - commander
+    - billet
+
+    - Pouvez-vous me donner des informations sur [Saint-Malo](city) ?
+    - Je veux en savoir plus sur les attractions à visiter à [Vannes](city).
+    - Avez-vous des renseignements sur les hôtels à [Saint-Brieuc](city) ?
+    - As-tu des renseignements sur les hôtels à [Nantes](city) ?
+    - Que faire à [Morlaix](city) ?
+    - Idées d'activités à [Brest](city)
+
+    - Quel temps fait-il à [Nantes](city) aujourd'hui ?
+    - Peux-tu me dire s'il va pleuvoir à [Brest](city) demain ?
+    - Est-ce qu'il fait chaud à [Lorient](city) en ce moment ?
+    - donne moi la météo à [vannes](city)
+    - Est-ce qu'il y aura du soleil à [Morlaix](city) demain ?
+    - Peux-tu me dire s'il va neiger à [Annecy](city) ce week-end ?
+    - Quelle est la prévision météorologique pour [Perpignan](city) aujourd'hui ?
+    - Donne-moi des informations sur le climat à [Nice](city).
+
+- intent: only_city
+  examples: |
+    - [Rennes](city)
+    - [Brest](city)
+    - [Vannes](city)
+    - [Nantes](city)
+    - [Saint-Malo](city)
+    - [Vannes](city)
+    - [Morlaix](city)
+    - [Paris](city)
+    - [Lyon](city)
+    - [Genève](city)
+    - [Toulouse](city)
+    - [Tourcoing](city)
+    - [Marseille](city)
+    - [Saint-Etienne](city)
+
+
+
+
+
+
+
+- intent: intent_email
+  examples: |
+    - Mon adresse e-mail est [john.doe@gmail.com](email)
+    - Peux-tu m'envoyer des informations à [contact@example.com](email) ?
+    - Mon e-mail est [user@email.com](email)
+    - Mon adresse e-mail est [john.doe@gmail.org](email)
+    - Peux-tu m'envoyer des informations à [contact@example.net](email) ?
+    - Mon e-mail est [user@email.fr](email)
+    - Mon adresse e-mail est [elie.pont@gmail.net](email)
+    - Peux-tu m'envoyer des informations à [contact@example.fr](email) ?
+    - Mon e-mail est [da@ed.org](email)
+    - [eliepont1@gmail.com](email)
+    - [eliepont1@888.0](email)
+    - [fake@example.com](email)
+    - [testuser123@gmail.com](email)
+    - [example@email.net](email)
+    - [notarealemail@hotmail.com](email)
+    - [temp_email@example.org](email)
+    - [user123456@yahoo.com](email)
+    - [dummyemail@domain.com](email)
+    - [tempuser@email.co.uk](email)
+    - [testing123@fake.com](email)
+    - [no_reply@example.net](email)
+
+
+
+  
+
+- intent: date
+  examples: |
+    - Je veux partir le [14 mars](date)
+    - Je veux partir [dans 2 semaines](date)
+    - Je veux un billet pour le [5 aout](date)
+    - [demain](date)
+    - [le 1er avril 2023](date)
+    - le [15/03/2024](date)
+  
+  
 - intent: find_attraction
   examples: |
-    - Trouve-moi un musée à [Brest](commune)
-    - Quelles sont les attractions à [Quimper](commune) ?
-    - Parle-moi des attractions à [Rennes](commune)
-    - Donne-moi des informations sur les endroits intéressants à [Lorient](commune)
-    - Où puis-je trouver des lieux touristiques à [Vannes](commune) ?
-    - Quels sont les musées recommandés à [Saint-Malo](commune) ?
-    - Y a-t-il des attractions célèbres à [Plouzané](commune) ?
-    - Trouve-moi un musée à [brest](commune)
-    - Quelles sont les attractions à [quimper](commune) ?
-    - Parle-moi des attractions à [rennes](commune)
-    - Donne-moi des informations sur les endroits intéressants à [lorient](commune)
-    - Où puis-je trouver des lieux touristiques à [vannes](commune) ?
-    - Quels sont les musées recommandés à [saint-malo](commune) ?
-    - Y a-t-il des attractions célèbres à [plouzané](commune) ?
+    - Trouve-moi un musée à [Brest](city)
+    - Quelles sont les attractions à [Quimper](city) ?
+    - Parle-moi des attractions à [Rennes](city)
+    - Donne-moi des informations sur les endroits intéressants à [Lorient](city)
+    - Où puis-je trouver des lieux touristiques à [Vannes](city) ?
+    - Quels sont les musées recommandés à [Saint-Malo](city) ?
+    - Y a-t-il des attractions célèbres à [Plouzané](city) ?
+    - Trouve-moi un musée à [brest](city)
+    - Quelles sont les attractions à [quimper](city) ?
+    - Parle-moi des attractions à [rennes](city)
+    - Donne-moi des informations sur les endroits intéressants à [lorient](city)
+    - Où puis-je trouver des lieux touristiques à [vannes](city) ?
+    - Quels sont les musées recommandés à [saint-malo](city) ?
+    - Y a-t-il des attractions célèbres à [plouzané](city) ?
 
-- intent: get_description
-  examples: |
-    - Parle-moi de la [Ville-port de Brest](titre_courant)
-    - Décris la [Base de sous-marins](titre_courant)
-    - Que peux-tu me dire sur le [Gymnase Foch] (titre_courant)
-    - Donne-moi des détails sur la [Cité universitaire](titre_courant)
-    - Explique ce qu'est le [Château de Bréquigny](titre_courant)
-    - Raconte l'histoire du [Parc de Bréquigny](titre_courant)
-    - Parle-moi un peu plus des [Latrines](titre_courant)
-    - Quelle est l'histoire derrière l'[École municipale de jeunes filles](titre_courant) ?
-   
 - intent: get_activity_type
   examples: |
     - Indique moi une infrastructure [militaire](type_activite)
     - Trouve moi un [port](type_activite)
     - Donne une installation [sport](type_activite)
-    - Indique moi un établissement[education](type_activite)
-    - Pointe vers un bâtiments[administratif](type_activite)
-    - Cherche un Édifice [religion](type_activite)
+    - Indique moi un établissement [education](type_activite)
+    - Pointe vers un bâtiments [administratif](type_activite)
+    - Cherche un édifice [religion](type_activite)
+    - Donne moi une [religion](type_activite)
     - Fais moi découvrir un site [histoire](type_activite)
-   
-- intent: greet
-  examples: |
-    - salut
-    - bonjour
-    - coucou
-    - bonjour là
-    - bon matin
-    - bonsoir
-    - moin
-    - salut là
-    - allons-y
-    - hé mec
-    - bon matin
-    - bonsoir
-    - bon après-midi
-
-- intent: goodbye
-  examples: |
-    - cu
-    - au revoir
-    - à la prochaine
-    - bonne nuit
-    - adieu
-    - au revoir
-    - passe une bonne journée
-    - à bientôt
-    - bye bye
-    - à plus tard
+    - activite [sportive](type_activite)
+    - infrastructure [militaire](type_activite)
+    - installation [militaire](type_activite)
+    - installation [portuaire](type_activite)
+    - établissement [educatif](type_activite)
+    - bâtiment [administratif](type_activite)
+    - édifice [religion](type_activite)
+    - site [histoire](type_activite)

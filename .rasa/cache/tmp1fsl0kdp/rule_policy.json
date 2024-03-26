@@ -1,0 +1,44 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"hello\"}}]": "utter_hello",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"hello\"}}, {\"prev_action\": {\"action_name\": \"utter_hello\"}, \"user\": {\"intent\": \"hello\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]": "utter_reformuler",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"utter_reformuler\"}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]": "action_extract_date",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}, {\"prev_action\": {\"action_name\": \"action_extract_date\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}]": "action_validate_email",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}, {\"prev_action\": {\"action_name\": \"action_validate_email\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_activity_type\"}}]": "action_ask_activity_type",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"get_activity_type\"}}, {\"prev_action\": {\"action_name\": \"action_ask_activity_type\"}, \"user\": {\"intent\": \"get_activity_type\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"prev_action\": {\"action_name\": \"utter_reformuler\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"hello\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}, {\"prev_action\": {\"action_name\": \"action_extract_date\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}, {\"prev_action\": {\"action_name\": \"action_validate_email\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"intent_email\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"slots\": {\"type_demande\": [0.0, 1.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"type_demande\": [1.0, 0.0, 0.0, 0.0]}, \"user\": {\"intent\": \"date\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"hello\"}}, {\"prev_action\": {\"action_name\": \"utter_hello\"}, \"user\": {\"intent\": \"hello\"}}]"
+    ]
+  }
+}

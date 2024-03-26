@@ -1,49 +1,46 @@
 version: "3.1"
 
 stories:
-- story: Attractions à Brest
-  steps:
-    - intent: find_attraction
-      entities:
-      - commune: "Brest"
-    - action: action_find_attraction
 
-- story: type activité
+- story: demande
   steps:
+    - intent: demande
+    - action: action_extract_demande
+    - checkpoint: checkpoint_demande
+
+- story: acheter
+  steps:
+    - checkpoint: checkpoint_demande
+    - slot_was_set:
+        - type_demande: "acheter"
+    - action : action_check_city
+    - or: 
+      - intent: affirm
+      - intent: only_city
+    - action: utter_ask_date_acheter
+
+
+- story: meteo
+  steps:
+    - checkpoint: checkpoint_demande
+    - slot_was_set:
+      - type_demande: "meteo"
+    - action: action_check_city
+    - or: 
+      - intent: affirm
+      - intent: only_city
+    - action: utter_ask_date_meteo
+
+
+- story: activite
+  steps:
+    - checkpoint: checkpoint_demande
+    - slot_was_set:
+      - type_demande: "activite"
+    - action: action_check_city
+    - or: 
+      - intent: affirm
+      - intent: only_city
+    - action: action_find_attraction
     - intent: get_activity_type
     - action: action_ask_activity_type
-
-- story: Description Mont Saint-Michel
-  steps:
-    - intent: get_description
-      entities:
-      - titre_courant: "Mont Saint-Michel"
-    - action: action_get_description
-
-- story: attractions à Quimper
-  steps:
-    - intent: find_attraction
-      entities:
-      - commune: "Quimper"
-    - action: action_find_attraction
-
-- story: Description cathédrale de Rennes
-  steps:
-    - intent: get_description
-      entities:
-      - titre_courant: "Cathédrale de Rennes"
-    - action: action_get_description
-
-- story: Recommandations Vannes
-  steps:
-    - intent: find_attraction
-      entities:
-      - commune: "Vannes"
-    - action: action_find_attraction
-
-- story: Activités touristiques à Saint-Malo
-  steps:
-    - intent: find_attraction
-      entities:
-      - commune: "Saint-Malo"
-    - action: action_find_attraction

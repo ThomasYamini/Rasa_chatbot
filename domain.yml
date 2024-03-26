@@ -1,22 +1,53 @@
 version: "3.1"
 
 intents:
-  - greet
+  - hello
   - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - intent_email
+  - date
+  - demande 
+  - only_city
   - find_attraction
-  - get_description
   - get_activity_type
 
-entities:
-  - commune
-  - titre_courant
+entities: 
+  - email
+  - date
+  - city
   - type_activite
 
 slots:
+  email:
+    type: text
+    mappings:
+      - type: custom
+
+  date:
+    type: text
+    mappings:
+      - type: custom
+
+  type_demande:
+    type: categorical
+    influence_conversation: true
+    values:
+      - acheter
+      - meteo
+      - activite
+    mappings:
+      - type: custom
+  
   city:
     type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: city
+
   activity_type:
     type: categorical
     values:
@@ -29,39 +60,62 @@ slots:
       - histoire
     mappings:
     - type: custom
-  titre_courant:
-    type: text
-    mappings:
-    - type: custom
-  attraction_types:
-    type: list
-    mappings:
-    - type: custom
-  result:
-    type: any
-    mappings:
-    - type: custom
-  attraction_info:
-    type: text
-    mappings:
-    - type: custom
-  description:
-    type: text
-    mappings:
-    - type: custom
+      entity: type_activite
+
+
 
 responses:
   utter_greet:
-  - text: "Salut ! Comment ça va ?"
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Au revoir"
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_reformuler:
+  - text: "Pouvez vous reformuler s'il vous plaît ?"
+
+  utter_ask_email:
+  - text: "Quel est votre email ?"
+
+  utter_ask_date_acheter:
+  - text: "Quand voulez vous partir ?"
+
+  utter_ask_date_meteo:
+  - text: "Quelle date concerne votre demande ?"
+
+  utter_hello:
+  - text: "Bonjour, comment puis-je vous aider aujourd'hui ?"
+
+  utter_ask_feedback:
+  - text: "Merci pour votre demande, pouvez vous nous donner votre avis sur cette conversation ?"
+
+
+
 
 actions:
+  - action_validate_email
+  - action_extract_date
+  - action_extract_demande
+  - action_check_city
+  - action_reset_slots
   - action_find_attraction
-  - action_get_description
   - action_ask_activity_type
-  
+  - action_feedback
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

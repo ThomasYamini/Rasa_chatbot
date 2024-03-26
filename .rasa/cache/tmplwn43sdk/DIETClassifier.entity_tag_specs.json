@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-city",
+      "2": "I-city",
+      "3": "L-city",
+      "4": "U-city",
+      "5": "B-commune",
+      "6": "I-commune",
+      "7": "L-commune",
+      "8": "U-commune",
+      "9": "B-date",
+      "10": "I-date",
+      "11": "L-date",
+      "12": "U-date",
+      "13": "B-email",
+      "14": "I-email",
+      "15": "L-email",
+      "16": "U-email",
+      "17": "B-type_activite",
+      "18": "I-type_activite",
+      "19": "L-type_activite",
+      "20": "U-type_activite",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-city": 1,
+      "I-city": 2,
+      "L-city": 3,
+      "U-city": 4,
+      "B-commune": 5,
+      "I-commune": 6,
+      "L-commune": 7,
+      "U-commune": 8,
+      "B-date": 9,
+      "I-date": 10,
+      "L-date": 11,
+      "U-date": 12,
+      "B-email": 13,
+      "I-email": 14,
+      "L-email": 15,
+      "U-email": 16,
+      "B-type_activite": 17,
+      "I-type_activite": 18,
+      "L-type_activite": 19,
+      "U-type_activite": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

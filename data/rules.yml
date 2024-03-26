@@ -7,3 +7,46 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Say hello anytime the user says hello
+  steps:
+  - intent: hello
+  - action: utter_hello
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Demander à répéter à chaque fois que l'user dit non
+  steps:
+  - intent: deny
+  - action: utter_reformuler
+
+- rule: acheter1
+  condition: 
+  - slot_was_set:
+    - type_demande: "acheter"
+  steps:
+    - intent: date
+    - action: action_extract_date
+
+- rule: acheter2
+  condition: 
+  - slot_was_set:
+    - type_demande: "acheter"
+  steps:
+    - intent: intent_email
+    - action: action_validate_email
+
+- rule: meteo
+  condition: 
+  - slot_was_set:
+    - type_demande: "meteo"
+  steps:
+    - intent: date
+    - action: utter_goodbye
+
+- rule: activity 
+  steps: 
+    - intent: get_activity_type
+    - action: action_ask_activity_type
