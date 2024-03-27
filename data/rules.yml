@@ -47,6 +47,9 @@ rules:
     - action: get_meteo
 
 - rule: activity 
+  condition: 
+  - slot_was_set:
+    - type_demande: "activite"
   steps: 
     - intent: get_activity_type
     - action: action_ask_activity_type
