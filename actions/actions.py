@@ -8,6 +8,9 @@ import dateparser
 from dateparser.search import search_dates
 import pandas as pd
 from actions.applied_functions import lemmatize, finding_intent, analyze_sentiment
+from meteomatics import api
+import datetime as dt
+from fuzzywuzzy import process
 
 acheter = ["acheter", 'commander', 'billet', 'réserver','aller','ticket','train','avion']
 meteo = ["meteo", "temps", "pluie", "pluvieux", "neige", "neigeux", "soleil", 'chaud', 'chaleur', 'température', 'pleuvoir', 'neiger', 'ensoleillé', 'soleil', 'nuageux', 'nuages','fait']
@@ -87,7 +90,7 @@ class ExtractDateIntent(Action):
             dispatcher.utter_message(f"Je n'ai pas compris votre date de départ, veuillez reformuler")
         return[]
         # Si aucune date n'est trouvée, ne rien faire
-        
+
 
 class ExtractDemande(Action):
     def name(self):
@@ -202,3 +205,64 @@ class Feebdback(Action):
         if analyze_sentiment(latest_message) == 0 :
             dispatcher.utter_message("Je n'ai pas compris votre avis, pouvez vous le reformuler ?")
             return []
+
+
+
+class getMeteo(Action):
+    def name(self):
+        return "get_meteo"
+
+    def run(self, dispatcher, tracker, domain):
+        date_str = ''
+        # Récupérer le dernier message de l'utilisateur
+        latest_message = str(tracker.latest_message['text'])
+        dates = search_dates(latest_message, languages=['fr'])
+
+        # Si des dates sont trouvées, convertir en format de date
+        if not dates:
+            dispatcher.utter_message(f"Je n'ai pas compris votre date de départ, veuillez reformuler")
+            return[]
+            
+        
+        else : 
+            date_str, _ = dates[-1]  # Prendre la première date trouvée
+            date_str = str(dateparser.parse(date_str))[:10]
+
+       
+            city = tracker.get_slot('city')
+            date = date_str
+            
+            # Read the cities data from the CSV file
+            villes = pd.read_csv("cities.csv")
+
+            # Extract cities' labels
+            liste_mots = villes['label']
+
+            # Find the closest matching city to the provided city name
+            result = process.extractOne(city, liste_mots)
+
+            # Extract the index of the closest matching city
+            index_of_ville = result[2]
+
+            # Get latitude and longitude corresponding to the selected city
+            latitude, longitude = villes.iloc[index_of_ville, 4:6]
+
+            # API credentials
+            username = 'imtatlantique_pasquiou_julien'
+            password = 'w327EgPEyU'
+
+            # Define the location for weather query
+            location = [(latitude, longitude)]
+
+            # Define the date format
+            date_format = "%Y-%m-%d"
+
+            # Parse the date string into a datetime object
+            date_dt = dt.datetime.strptime(date, date_format)
+
+            # Query weather data for the selected location and date
+            df2 = api.query_time_series(location, date_dt, date_dt + dt.timedelta(hours=24), dt.timedelta(hours=1), ['t_2m:C'], username, password)
+
+            # Get the temperature data for a specific hour (e.g., 12:00 PM)
+            temperature = df2.iloc[12]
+            dispatcher.utter_message("Il fera "+str(temperature.values[0])+"°C à "+result[0]+" le "+date)

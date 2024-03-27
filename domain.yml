@@ -115,6 +115,7 @@ actions:
   - action_find_attraction
   - action_ask_activity_type
   - action_feedback
+  - get_meteo
 
 
 session_config:

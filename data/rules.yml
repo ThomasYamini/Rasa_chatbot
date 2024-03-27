@@ -44,7 +44,7 @@ rules:
     - type_demande: "meteo"
   steps:
     - intent: date
-    - action: utter_goodbye
+    - action: get_meteo
 
 - rule: activity 
   steps: 
